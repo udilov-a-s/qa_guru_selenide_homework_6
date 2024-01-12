@@ -3,7 +3,6 @@ package com.udilov.it;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DragAndDropOptions;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,19 +30,21 @@ public class DragAndDropTests {
         secondRectangle.shouldHave(text("B"));
     }
 
-    @AfterEach
-    void afterEach() {
+    @Test
+    void dragAndDropWithElementCommandTest() {
+
+        firstRectangle.dragAndDrop(DragAndDropOptions.to(secondRectangle));
+
         firstRectangle.shouldHave(text("B"));
         secondRectangle.shouldHave(text("A"));
     }
 
     @Test
-    void dragAndDropWithElementCommandTest() {
-        firstRectangle.dragAndDrop(DragAndDropOptions.to(secondRectangle));
-    }
-
-    @Test
     void dragAndDropWithSelenideActionsTest() {
+
         actions().dragAndDrop(firstRectangle, secondRectangle).perform();
+
+        firstRectangle.shouldHave(text("B"));
+        secondRectangle.shouldHave(text("A"));
     }
 }
