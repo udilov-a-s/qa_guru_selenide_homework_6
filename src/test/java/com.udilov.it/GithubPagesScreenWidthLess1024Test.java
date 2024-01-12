@@ -20,13 +20,14 @@ public class GithubPagesScreenWidthLess1024Test {
     }
 
     @Test
-    void successfulEnterprisePageOpen() {
+    void successfulEnterprisePageOpenTest() {
 
         open("");
         $(".d-flex").$(".Button-label").click();
         $$(".HeaderMenu-link").filterBy(text("Solutions")).first().click();
         $("a[href='/enterprise']").click();
 
-        $("#hero-section-brand-heading").shouldBe(visible).shouldHave(text("The AI-powered"));
+        $("#hero-section-brand-heading").shouldHave(text("The AI-powered\n" +
+                "developer platform.")).shouldBe(visible);
     }
 }
