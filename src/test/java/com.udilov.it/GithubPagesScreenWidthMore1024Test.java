@@ -14,7 +14,7 @@ public class GithubPagesScreenWidthMore1024Test {
     @BeforeAll
     static void beforeAll() {
 
-        Configuration.browserSize = "1025x768";
+        Configuration.browserSize = "1024x768";
         Configuration.baseUrl = "https://github.com";
         Configuration.pageLoadStrategy = "eager";
     }

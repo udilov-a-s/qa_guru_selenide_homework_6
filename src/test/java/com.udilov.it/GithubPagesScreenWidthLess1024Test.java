@@ -25,7 +25,7 @@ public class GithubPagesScreenWidthLess1024Test {
         open("");
         $(".d-flex").$(".Button-label").click();
         $$(".HeaderMenu-link").filterBy(text("Solutions")).first().click();
-        $("a[href='/enterprise']").click();
+        $$(".HeaderMenu-dropdown-link").filterBy(text("Enterprise")).first().click();
 
         $("#hero-section-brand-heading").shouldHave(text("The AI-powered\n" +
                 "developer platform.")).shouldBe(visible);
